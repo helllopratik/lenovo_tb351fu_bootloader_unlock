@@ -1,0 +1,1 @@
+{"flashmode": "XML", "patched": true, "hwcode": 4616, "meid": "5965aaf46525289909ff23ff3c818262", "socid": "76509f9111305f270a0ebd2833129d636bbf5f4820d3317d0f28037dc02201e7", "flashtype": "ufs", "flashsize": 255919652864, "target_config": {"sbc": true, "sla": false, "daa": true, "epp": false, "cert": false, "memread": true, "memwrite": true, "cmdC8": true}}
