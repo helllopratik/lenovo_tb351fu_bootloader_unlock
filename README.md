@@ -108,6 +108,8 @@ If your distro enforces PEP 668 restrictions, install the Python dependencies in
 3. Run the unlocker:
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 sudo python3 one_click_unlock.py
 ```
 
