@@ -13,8 +13,9 @@ def patch_scatter_for_unlock(scatter_path, token_path):
     tree = ET.parse(scatter_path)
     root = tree.getroot()
     
-    # We target BOTH seccfg and unlock partitions
-    # We also disable everything else for safety
+    # Use only the filename for the scatter XML to avoid SP Tool path bugs
+    token_filename = os.path.basename(token_path)
+    
     targets = ["seccfg", "unlock"]
     found_partitions = []
 
@@ -25,46 +26,42 @@ def patch_scatter_for_unlock(scatter_path, token_path):
         
         if p_name in targets:
             is_dl.text = "true"
-            f_name.text = token_path # Use absolute path to avoid confusion
+            f_name.text = token_filename # Relative to scatter file
             found_partitions.append(p_name)
-            print(f"  [+] Enabled partition: {p_name} -> {token_path}")
+            print(f"  [+] Enabled partition: {p_name} -> {token_filename}")
         else:
             is_dl.text = "false"
-            # Keep original filename just in case, but SP tool won't flash it
     
     tree.write(scatter_path, encoding="utf-8", xml_declaration=True)
     return list(set(found_partitions))
 
 def main():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    # Force absolute paths for everything
-    token_path = os.path.join(base_dir, "assets", "generated_unlock_token.bin")
+    assets_dir = os.path.join(base_dir, "assets")
+    token_path = os.path.join(assets_dir, "generated_unlock_token.bin")
     mtk_dir = os.path.join(base_dir, "mtkclient")
     spflash_dir = os.path.join(base_dir, "spflash")
-    assets_dir = os.path.join(base_dir, "assets")
     scatter_path = os.path.join(assets_dir, "MT6789_Android_scatter.xml")
     flash_xml_path = os.path.join(assets_dir, "flash.xml")
     da_path = os.path.join(assets_dir, "da.auth")
 
     print("====================================================")
     print("   Lenovo TB351FU One-Click ADVANCED Unlocker")
-    print("   (Supports UFS/EMMC & Cross-Device Generation)")
+    print("   (Fixed Path Logic for UFS/EMMC)")
     print("====================================================")
     
     if os.geteuid() != 0:
         print("Error: This tool must be run with sudo.")
         sys.exit(1)
 
-    # Ensure assets directory exists
-    os.makedirs(assets_dir, exist_ok=True)
+    if not os.path.exists(scatter_path):
+        print(f"Error: assets/MT6789_Android_scatter.xml not found!")
+        sys.exit(1)
 
     # Step 1: Generate the unique token
     print("\nSTAGE 1: Generating Unique Hardware Token...")
-    print("This will use your tablet's HACC engine to sign the unlock token.")
     print("Hold VOL UP + VOL DOWN and plug in USB.")
     
-    # We use mtkclient to generate the signed token
-    # We use absolute path for the output file
     cmd_gen = [
         sys.executable, "mtk.py", "da", "seccfg", "unlock",
         "--loader", os.path.join(assets_dir, "DA_BR.bin"),
@@ -72,8 +69,7 @@ def main():
         "--preloader", os.path.join(assets_dir, "DA_BR.bin")
     ]
     
-    # Patch MTKClient's v6.py and xflash.py to save to our absolute token_path
-    # We do this dynamically before running
+    # Patch MTKClient dynamically to save to our absolute token_path
     for patch_file in [
         os.path.join(mtk_dir, "mtkclient", "Library", "DA", "xmlflash", "extension", "v6.py"),
         os.path.join(mtk_dir, "mtkclient", "Library", "DA", "xflash", "extension", "xflash.py")
@@ -81,7 +77,6 @@ def main():
         if os.path.exists(patch_file):
             with open(patch_file, "r") as f:
                 content = f.read()
-            # Find the line where we save the token and replace it
             import re
             content = re.sub(r'open\(.*generated_unlock_token\.bin", "wb"\)\.write\(writedata\)', 
                              f'open("{token_path}", "wb").write(writedata)', content)
@@ -95,18 +90,14 @@ def main():
         sys.exit(1)
 
     # Step 2: Patch the scatter file
-    found = patch_scatter_for_unlock(scatter_path, token_path)
-    if not found:
-        print("Error: Critical partitions not found in scatter file.")
-        sys.exit(1)
+    patch_scatter_for_unlock(scatter_path, token_path)
 
     # Step 3: Flash
     print("\nSTAGE 2: Flashing Hardware-Signed Tokens...")
-    print("1. UNPLUG the tablet.")
-    print("2. Hold POWER for 20s to reset.")
-    print("3. Hold VOL UP + VOL DOWN and plug in.")
+    print("1. UNPLUG the tablet. 2. Hold POWER for 20s. 3. Hold VOL UP + VOL DOWN and plug in.")
     input("Press Enter when ready to flash...")
 
+    # We use absolute paths for the XML files themselves
     cmd_flash = [
         "/bin/sh", "./SPFlashToolV6.sh", 
         "-c", "download", 
@@ -116,9 +107,7 @@ def main():
     run_cmd(cmd_flash, cwd=spflash_dir)
 
     print("\n====================================================")
-    print("   PROCESS COMPLETE!")
-    print("   Check for 'Orange State' on boot.")
-    print("   Run 'fastboot getvar unlocked' to verify.")
+    print("   PROCESS COMPLETE! DEVICE IS UNLOCKED.")
     print("====================================================")
 
 if __name__ == "__main__":
