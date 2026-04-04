@@ -93,6 +93,8 @@ Because the official Lenovo firmware for this model is encrypted, you may need t
 Example setup:
 
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 sudo apt update
 sudo apt install -y python3 python3-pip python3-cryptography libusb-1.0-0
 sudo systemctl stop ModemManager
@@ -108,9 +110,7 @@ If your distro enforces PEP 668 restrictions, install the Python dependencies in
 3. Run the unlocker:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
-sudo python3 one_click_unlock.py
+sudo ./venv/bin/python3 one_click_unlock.py
 ```
 
 4. Follow the on-screen prompts for both connection stages.
