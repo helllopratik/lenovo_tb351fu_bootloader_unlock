@@ -60,7 +60,7 @@ def main():
 
     # Step 1: Generate the unique token
     print("\nSTAGE 1: Generating Unique Hardware Token...")
-    print("Hold VOL UP + VOL DOWN and plug in USB.")
+    print("Hold VOL UP + and plug in USB.")
     
     cmd_gen = [
         sys.executable, "mtk.py", "da", "seccfg", "unlock",
@@ -94,7 +94,7 @@ def main():
 
     # Step 3: Flash
     print("\nSTAGE 2: Flashing Hardware-Signed Tokens...")
-    print("1. UNPLUG the tablet. 2. Hold POWER for 20s. 3. Hold VOL UP + VOL DOWN and plug in.")
+    print("1. UNPLUG the tablet. 2. Hold VOL UP and plug in.")
     input("Press Enter when ready to flash...")
 
     # We use absolute paths for the XML files themselves
