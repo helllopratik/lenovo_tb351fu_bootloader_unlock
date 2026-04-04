@@ -27,7 +27,8 @@ def main():
     # Step 1: Generate the unique token
     print("\nSTAGE 1: Generating Unique Hardware Token...")
     print("1. Ensure tablet is UNPLUGGED and POWERED OFF.")
-    print("2. When prompted, hold VOL UP + VOL DOWN and plug in USB.")
+    print("2. When prompted, hold VOL UP and plug in USB.")
+    print("   On TB351FU, plugging in the cable while holding VOL UP should enter BROM.")
     input("Press Enter to start Stage 1...")
 
     cmd_gen = [
@@ -50,8 +51,7 @@ def main():
     # Step 2: Flash the token
     print("\nSTAGE 2: Flashing the Token...")
     print("1. UNPLUG the tablet.")
-    print("2. Hold POWER for 20 seconds to reset from previous stage.")
-    print("3. When prompted, hold VOL UP + VOL DOWN and plug in USB.")
+    print("3. When prompted, unplug usb and re-plug while pressing VOL UP key.")
     input("Press Enter to start Stage 2...")
 
     # We need to use absolute paths for SP Flash Tool to be stable
