@@ -1,0 +1,99 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="56" x2="1176" y2="584" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.55" stop-color="#0B3A57"/>
+      <stop offset="1" stop-color="#0E7490"/>
+    </linearGradient>
+    <linearGradient id="card" x1="170" y1="112" x2="1076" y2="548" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0F1D33" stop-opacity="0.72"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="816" y1="160" x2="1056" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#38BDF8"/>
+    </linearGradient>
+    <filter id="shadow" x="130" y="78" width="1020" height="500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="18"/>
+      <feGaussianBlur stdDeviation="20"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0196078 0 0 0 0 0.0823529 0 0 0 0 0.160784 0 0 0 0.48 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="640" rx="32" fill="url(#bg)"/>
+  <circle cx="121" cy="117" r="121" fill="#22D3EE" fill-opacity="0.08"/>
+  <circle cx="1144" cy="565" r="154" fill="#F59E0B" fill-opacity="0.08"/>
+  <circle cx="1058" cy="94" r="86" fill="#38BDF8" fill-opacity="0.08"/>
+
+  <g opacity="0.22">
+    <path d="M82 508C218 413 318 382 424 391C526 399 635 452 738 444C844 435 922 338 1034 305C1107 284 1163 290 1223 313" stroke="#D5F7FF" stroke-width="2"/>
+    <path d="M78 544C197 464 319 430 427 435C546 440 639 505 772 499C883 493 949 394 1058 365C1113 350 1169 351 1216 365" stroke="#D5F7FF" stroke-width="2"/>
+    <path d="M85 147H282" stroke="#D5F7FF" stroke-width="2"/>
+    <path d="M1021 114H1182" stroke="#D5F7FF" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="170" y="112" width="940" height="420" rx="28" fill="url(#card)" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  </g>
+
+  <rect x="216" y="168" width="190" height="40" rx="20" fill="#0E7490" fill-opacity="0.18" stroke="#67E8F9" stroke-opacity="0.36"/>
+  <text x="241" y="193" fill="#A5F3FC" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="1.6">LINUX WORKFLOW</text>
+
+  <text x="216" y="258" fill="#E2E8F0" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600">Lenovo Tab Plus (TB351FU)</text>
+  <text x="216" y="328" fill="white" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="800">One-Click Bootloader Unlock</text>
+  <text x="216" y="378" fill="#C7D2FE" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="500">
+    Generates a device-specific token with mtkclient,
+  </text>
+  <text x="216" y="410" fill="#C7D2FE" font-family="Segoe UI, Arial, sans-serif" font-size="23" font-weight="500">
+    then flashes it with SP Flash Tool for Linux.
+  </text>
+
+  <g>
+    <rect x="216" y="446" width="126" height="36" rx="18" fill="#082F49" stroke="#38BDF8" stroke-opacity="0.48"/>
+    <text x="244" y="469" fill="#E0F2FE" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">MT6789</text>
+
+    <rect x="355" y="446" width="146" height="36" rx="18" fill="#3F2A09" stroke="#F59E0B" stroke-opacity="0.48"/>
+    <text x="384" y="469" fill="#FEF3C7" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">BROM MODE</text>
+
+    <rect x="514" y="446" width="170" height="36" rx="18" fill="#0F3B30" stroke="#34D399" stroke-opacity="0.48"/>
+    <text x="548" y="469" fill="#D1FAE5" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">SP FLASH V6</text>
+  </g>
+
+  <g>
+    <rect x="810" y="156" width="208" height="318" rx="28" fill="#07111F" stroke="#93C5FD" stroke-opacity="0.28" stroke-width="3"/>
+    <rect x="842" y="187" width="144" height="240" rx="18" fill="#0E223B" stroke="#3B82F6" stroke-opacity="0.42" stroke-width="2"/>
+    <rect x="886" y="443" width="56" height="10" rx="5" fill="#3B82F6" fill-opacity="0.54"/>
+    <circle cx="914" cy="171" r="5" fill="#67E8F9"/>
+  </g>
+
+  <g>
+    <rect x="748" y="242" width="116" height="116" rx="22" fill="#081423" stroke="url(#accent)" stroke-width="3"/>
+    <rect x="783" y="206" width="46" height="48" rx="22" fill="none" stroke="#67E8F9" stroke-width="12"/>
+    <rect x="785" y="268" width="42" height="28" rx="10" fill="#67E8F9"/>
+    <circle cx="806" cy="292" r="8" fill="#081423"/>
+    <path d="M806 300V314" stroke="#081423" stroke-width="6" stroke-linecap="round"/>
+  </g>
+
+  <g opacity="0.9">
+    <path d="M867 258H930" stroke="#38BDF8" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10"/>
+    <path d="M960 258H1019" stroke="#38BDF8" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10"/>
+    <path d="M930 381H1001" stroke="#22D3EE" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10"/>
+    <circle cx="944" cy="258" r="6" fill="#7DD3FC"/>
+    <circle cx="1005" cy="258" r="6" fill="#7DD3FC"/>
+    <circle cx="930" cy="381" r="6" fill="#67E8F9"/>
+    <circle cx="1001" cy="381" r="6" fill="#67E8F9"/>
+  </g>
+
+  <g>
+    <rect x="1032" y="207" width="62" height="62" rx="16" fill="#082032" stroke="#22D3EE" stroke-opacity="0.42" stroke-width="2"/>
+    <text x="1051" y="245" fill="#A5F3FC" font-family="Consolas, monospace" font-size="15" font-weight="700">BROM</text>
+
+    <rect x="1032" y="350" width="62" height="62" rx="16" fill="#14251A" stroke="#34D399" stroke-opacity="0.42" stroke-width="2"/>
+    <text x="1048" y="388" fill="#D1FAE5" font-family="Consolas, monospace" font-size="15" font-weight="700">UFS</text>
+  </g>
+</svg>
