@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<readback-backup version="1.0">
+    <general>
+        <chip-name>MT6789 </chip-name>
+        <storage-type>EMMC</storage-type>
+    </general>
+    <readback>
+        <manual-readback-list>
+            <readback-item region-text="EMMC-USER" length="0x800000" enabled="true" partition-name="" start-addr="0x17800000">/home/hellopratik/Desktop/new_updated/TB351FU_ROW_OPEN_USER_M15125.2_A16_ZUI_17.5.10.073_ST_260213/SP_Flash_Tool_v6.2228_Linux/Readback/ROM_0</readback-item>
+        </manual-readback-list>
+        <auto-readback-list/>
+    </readback>
+</readback-backup>
