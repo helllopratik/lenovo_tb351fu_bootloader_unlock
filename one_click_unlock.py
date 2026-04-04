@@ -51,7 +51,8 @@ def main():
     # Step 2: Flash the token
     print("\nSTAGE 2: Flashing the Token...")
     print("1. UNPLUG the tablet.")
-    print("3. When prompted, unplug usb and re-plug while pressing VOL UP key.")
+    print("2. Re-enter BROM by re-plugging USB while pressing VOL UP.")
+    print("   Recovery is VOL UP + VOL DOWN + POWER.")
     input("Press Enter to start Stage 2...")
 
     # We need to use absolute paths for SP Flash Tool to be stable
@@ -66,7 +67,7 @@ def main():
 
     print("\n====================================================")
     print("   PROCESS COMPLETE!")
-    print("   Reboot your tablet to Fastboot Mode.")
+    print("   Reboot your tablet to Fastboot Mode (VOL DOWN + POWER).")
     print("   Run 'fastboot getvar unlocked' to verify.")
     print("====================================================")
 

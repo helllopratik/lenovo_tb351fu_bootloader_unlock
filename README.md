@@ -48,6 +48,7 @@ The script runs `mtkclient` in DA/BROM mode and attempts to generate a hardware-
 - Tool used: `mtkclient`
 - Expected output: `generated_unlock_token.bin`
 - Connection method: powered-off tablet + `Volume Up` BROM handshake
+- Shortcut: holding `Volume Up` while plugging in the charging or USB cable should boot directly into BROM on `TB351FU`
 
 ### Stage 2: Flashing
 
@@ -111,17 +112,21 @@ sudo python3 one_click_unlock.py
 ```
 
 4. Follow the on-screen prompts for both connection stages.
-5. When the process finishes, boot to fastboot and verify:
+5. When the process finishes, power the tablet off, boot to fastboot, and verify:
 
 ```bash
 fastboot getvar unlocked
 ```
 
-## Button Combos
+Fastboot on `TB351FU`:
+
+- Hold `Volume Down` + `Power` from power-off
+
+## Boot Modes And Button Combos
 
 | Action | Key combo |
 | --- | --- |
-| BROM mode | Hold `Volume Up`, then plug in USB |
+| BROM mode | Hold `Volume Up`, then plug in USB or charger |
 | Recovery | Hold `Volume Up` + `Volume Down`, then press `Power` |
 | Force reset | Hold `Power` + `Volume Down` for about 20 to 25 seconds |
 | Fastboot | Hold `Volume Down` + `Power` from power-off |
