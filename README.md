@@ -8,6 +8,9 @@
   A Linux-first helper that automates a two-stage MediaTek bootloader unlock workflow for the Lenovo Tab Plus <code>TB351FU</code> using <code>mtkclient</code> and <code>SP Flash Tool v6</code>.
 </p>
 
+> [!NOTE]
+> TB351FU DevHub link for users who want to all the development related links in one place including custom roms and recovery [TB351FU_Dev_HUB](https://helllopratik.github.io/tb351fu/).
+
 <p align="center">
   <strong>TB351FU only</strong> • <strong>MT6789 / Helio G99</strong> • <strong>Linux workflow</strong> • <strong>Experimental</strong>
 </p>
