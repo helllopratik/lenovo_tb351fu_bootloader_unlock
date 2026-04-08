@@ -127,6 +127,12 @@ Fastboot on `TB351FU`:
 
 - Hold `Volume Down` + `Power` from power-off
 
+## Video Guide
+
+If you want a visual walkthrough for the flashing part of this workflow, use this video guide:
+
+- [How to flash the bootloader on Lenovo Tab Plus TB351FU](https://www.youtube.com/watch?v=SAwgAutwB2s&t=374s)
+
 ## Boot Modes And Button Combos
 
 | Action | Key combo |
