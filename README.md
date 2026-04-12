@@ -152,6 +152,8 @@ On this tablet, if the device is powered off and you keep `Volume Up` pressed wh
 - USB stability, firmware version, auth file compatibility, and host distro differences can affect the outcome.
 
 ## Acknowledgements
+ - Maintainer: `Pratik Gondane (@helllopratik)`
+ - Device: `Lenovo Tab Plus (2024) TB351FU`
 
 Special thanks to:
 
