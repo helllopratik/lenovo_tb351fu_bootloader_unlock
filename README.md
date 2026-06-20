@@ -103,7 +103,8 @@ sudo apt install -y python3 python3-pip python3-cryptography libusb-1.0-0
 sudo systemctl stop ModemManager
 python3 -m pip install -r mtkclient/requirements.txt
 sudo apt install libfuse2 fuse
-'If you are on newer Ubuntu versions and using FUSE3'
+pip install crypto
+#If you are on newer Ubuntu versions and using FUSE3
 sudo apt install libfuse2t64
 ```
 
@@ -129,6 +130,12 @@ fastboot getvar unlocked
 Fastboot on `TB351FU`:
 
 - Hold `Volume Down` + `Power` from power-off
+- 
+## Relock Bootloader
+
+```bash
+sudo -E $(which python) ./one_click_relock.py
+```
 
 ## Video Guide
 
