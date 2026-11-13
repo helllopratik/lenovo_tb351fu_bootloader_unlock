@@ -8,6 +8,20 @@ def run_cmd(cmd, cwd=None):
     print(f"\n[EXEC] {' '.join(cmd)}")
     return subprocess.run(cmd, cwd=cwd)
 
+def ensure_venv():
+    """Relaunch under the bundled venv so mtkclient's deps (e.g. pycryptodome) are found.
+
+    Running this script with sudo makes the shebang resolve to the system python,
+    which does not have mtkclient's dependencies installed.
+    """
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    venv_dir = os.path.join(base_dir, "venv")
+    venv_python = os.path.join(venv_dir, "bin", "python3")
+    if os.path.exists(venv_python) and os.path.realpath(sys.prefix) != os.path.realpath(venv_dir):
+        print(f"[*] Switching to bundled interpreter: {venv_python}", flush=True)
+        sys.stdout.flush()
+        os.execv(venv_python, [venv_python, os.path.abspath(__file__), *sys.argv[1:]])
+
 def patch_scatter_for_relock(scatter_path, token_path):
     print(f"Surgically patching scatter file: {scatter_path}")
     tree = ET.parse(scatter_path)
@@ -36,6 +50,7 @@ def patch_scatter_for_relock(scatter_path, token_path):
     return list(set(found_partitions))
 
 def main():
+    ensure_venv()
     base_dir = os.path.dirname(os.path.abspath(__file__))
     assets_dir = os.path.join(base_dir, "assets")
     # We use a distinct name for the relock token to avoid confusion with the unlock token
